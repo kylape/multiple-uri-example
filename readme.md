@@ -20,6 +20,8 @@ around this issue.
 
 ##Building and Deploying
 
+**Note:** Please clone this project into a folder named `multipleUris.war`.
+
 - Put `ant` on your `PATH`
 - Set `JBOSS_HOME`
 - Build and deploy: `ant deploy`
