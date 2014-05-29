@@ -20,10 +20,19 @@ around this issue.
 
 ##Building and Deploying
 
-**Note:** Please clone this project into a folder named `multipleUris.war`.
-
-- Put `ant` on your `PATH`
+- Put `mvn` on your `PATH`
 - Set `JBOSS_HOME`
-- Build and deploy: `ant deploy`
+
+###POJO
+- Build: `mvn clean install`
+- Deploy: `cd endpoint-pojo; mvn jboss-as:deploy`
+
+###EJB
+- Use the `./installModuleZip.sh` to build and deploy the shared valve.  This
+  will also install the global valve in the JBoss configuration.  **NOTE**:
+  Make sure JBoss is running before issuing this command.
+- Deploy EJB: `cd endpoint-ejb; mvn jboss-as:deploy`
+
+##Testing
 - Test: `./request.sh`
 - Change the URL in `request.sh` to try out different URIs
