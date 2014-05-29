@@ -10,6 +10,7 @@
   <modules>
     <module>valve</module>
     <module>endpoint-pojo</module>
+    <module>endpoint-ejb</module>
   </modules>
   <dependencies>
     <dependency>
