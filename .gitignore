@@ -2,3 +2,4 @@ tags
 cscope.*
 dist/
 *.class
+target/
