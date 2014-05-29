@@ -31,12 +31,6 @@
       <version>3.0.0.GA</version>
       <scope>provided</scope>
     </dependency>
-    <dependency>
-      <groupId>com.redhat.gss</groupId>
-      <artifactId>multiple-uri-valve</artifactId>
-      <version>1.0-SNAPSHOT</version>
-      <scope>provided</scope>
-    </dependency>
   </dependencies>
   <build>
     <finalName>multipleUris</finalName>
