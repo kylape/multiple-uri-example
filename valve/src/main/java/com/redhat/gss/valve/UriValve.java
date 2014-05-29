@@ -10,6 +10,7 @@ import org.apache.tomcat.util.buf.CharChunk;
 import org.jboss.logging.Logger;
 
 public class UriValve extends ValveBase {
+  private static final String[] ENABLED_CONTEXTS = {"/multipleUris"};
   private static final String ENDPOINT_URI_FRAGMENT = "/services/hello";
   private static final Pattern pattern = Pattern.compile("(services(_){1})|local");
   private static final Logger log = Logger.getLogger(UriValve.class);
@@ -18,7 +19,14 @@ public class UriValve extends ValveBase {
     String contextPath = request.getContextPath();
     String originalUri = request.getRequestURI();
     String endpointUri = contextPath + ENDPOINT_URI_FRAGMENT;
-    if(pattern.matcher(originalUri).find()) {
+    boolean shouldMatch = false;
+    for(String enabledContext : ENABLED_CONTEXTS) {
+      if(enabledContext.equals(contextPath)) {
+        shouldMatch = true;
+        break;
+      }
+    }
+    if(shouldMatch && pattern.matcher(originalUri).find()) {
       if(log.isDebugEnabled()) {
         log.debug("Changing " + originalUri + " to " + endpointUri);
       }
